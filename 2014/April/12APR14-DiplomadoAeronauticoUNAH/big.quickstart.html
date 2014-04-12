@@ -1,0 +1,155 @@
+<!DOCTYPE html><html><head><title>Diplomado Gestion Sistemas Aeroportuarios</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><style type='text/css'>
+body {
+  font-family: 'Helvetica';
+  letter-spacing:-5px;
+  background:#01015E;
+  background-size:100%;
+  color:#fff;
+  margin:0;
+  padding:0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em, a {
+  font-style:normal;
+  color:#FCB108;
+}
+
+a {
+  background: #34d0e7;
+  color:#000;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding:75px;
+  line-height:97%;
+}
+
+div.center {
+  text-align:center;
+}
+
+div.imageText {
+  text-shadow:0px 0px 5px rgba(0,0,0,0.2);
+}
+
+.opacity30 {
+
+	filter:alpha(opacity=60);
+
+	-moz-opacity:0.6;
+
+	-khtml-opacity: 0.6;
+
+	opacity: 0.6;
+
+}
+
+.resize_fit_center {
+    max-width:100%;
+    max-height:100%;
+    vertical-align: middle;
+}
+
+</style><script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0, ti;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n], t;
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+            if ('classList' in e) e.classList.add('imageText');
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        if (ti !== undefined) window.clearInterval(ti);
+        t = parseInt(e.getAttribute('time-to-next') || 0, 10);
+        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 2) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() { go(++cur % (s.length)); };
+    function fwd() { go(Math.min(s.length - 1, ++cur)); }
+    function rev() { go(Math.max(0, --cur)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39) fwd();
+        if (e.which === 37) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script></head><body>
+<div align="center">AIM GIS<em>COCESNA</em></div>
+<div>¿Que es lo que hacemos? </div>
+<div>Cartografia </div>
+<div><img src='assets/rnav.png' class="opacity30"/>--></div>
+<div><img class='resize_fit_center' src='assets/rnav_mhtg.png' class="opacity30"/></div>
+<div>Procedimientos para aterrizaje y despegue de aeronaves </div>
+<div><em>PANS OPS y PBN</em></div>
+<div><img class='resize_fit_center' src='assets/ilz_mzbz.png' class="opacity30"/></div>
+<div>Un ILS en <em>Belice</em> sin obstaculos por terreno</div>
+<div>Miremos <em>Toncontin</em></div>
+<div><img class='resize_fit_center' src='assets/rnav_mhtg2.png' class="opacity30"/></div>
+<div>Totalmente distinto pero <em>100% seguro</em></div>
+<div><img class='resize_fit_center' src='assets/tabla_mhtg.png' class="opacity30"/></div>
+<div>Asi se codifica el procedimiento <em>RNAV RNP 0.3</em></div>
+<div>Trayectorias en Curva <em>NO SE PUEDE CON ILS</em></div>
+<div><img class='resize_fit_center' src='assets/rnav_mhtg2.png' class="opacity30"/></div>
+<div>Algun dia un<em>GLS?</em></div>
+<div align="center"><iframe width="1200" height="600" src="http://www.youtube.com/embed/bsiDpyj5gec">Video</iframe></div>
+<div>Analisis de Rutas </div>
+<div>Calculamos nuevas rutas</div>
+<div><img class='resize_fit_center' src='assets/new-routes.png' class="opacity30"/></div>
+<div>Mapas Tematicos </div>
+<div><img class='resize_fit_center' src='assets/evolucion.png' class="opacity30"/></div>
+<div>Planos de Aerodromo </div>
+<div>Verificaciòn de datos aeronauticos</div>
+<div>Visite nuestro sitio web <a href='http://www.cocesna.org/ais.php'><br>AIP CA online</a></br></div>
+<div align="center">Gracias!<br><em>Feliz Semana Santa</em></br></div>
+
